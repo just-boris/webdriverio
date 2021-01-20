@@ -291,7 +291,7 @@ export async function findElements(
 /**
  * Strip element object and return w3c and jsonwp compatible keys
  */
-export function verifyArgsAndStripIfElement(args: any) {
+export function verifyArgsAndStripIfElement<T>(args: T): T {
     function verify (arg: any) {
         if (isObject(arg) && arg.constructor.name === 'Element') {
             const elem = arg as ElementObject

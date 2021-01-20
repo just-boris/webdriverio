@@ -87,6 +87,11 @@ async function bar() {
     }, 4)
     executeResult.toFixed(2)
 
+    const executeAsyncResult = await browser.executeAsync(function (x, done) {
+        done(x)
+    }, 4)
+    executeAsyncResult.toFixed(2)
+
     const callResult = <number>await browser.call(() =>
         new Promise(resolve => setTimeout(() => resolve(4), 1))
     )

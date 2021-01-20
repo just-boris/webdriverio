@@ -35,10 +35,10 @@ import { verifyArgsAndStripIfElement } from '../../utils'
  *
  */
 
-export default function execute (
+export default function execute<Args extends any[], Return> (
     this: WebdriverIO.BrowserObject,
-    script: string | Function,
-    ...args: any[]
+    script: string | ((...args: Args) => Return),
+    ...args: Args
 ) {
     /**
      * parameter check
